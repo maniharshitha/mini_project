@@ -13,7 +13,7 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
     if(strlen($_POST['username'])<1||strlen($_POST['password'])<1)
     {
         array_push($errors,"All fields are required");
-        header("Location: index.php");
+        header("Location: mini_project\index.php");
         return;
     }
     $username=htmlentities($_POST['username']);
@@ -24,7 +24,7 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
     if($stmt->rowCount()>0){
         $_SESSION['na']=$_POST['username'];
         $_SESSION['success']="logged in";
-        header("Location:index.php");
+        header("Location:mini_project\index.php");
     }
     else{
         array_push($errors,"usernot availabe");
@@ -35,7 +35,7 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
 <html>
 <head>
 <title> registration </title>
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="mini_project\style.css">
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -48,8 +48,8 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
 <div class="header">
 <h2>Login</h2>
 </div>
-<form method="post" action="login.php">
-<?php include('errors.php');?> 
+<form method="post" action="mini_project\login.php">
+<?php include('mini_project\errors.php');?> 
     <div class="input-group">
      <label>Username</label>
         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -63,7 +63,7 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
 <div class="input-group">
      <button type="submit" name="login" class="btn">login</button>
 </div>
-<p> Don't have an account?<a href="register.php"> Sign up</a>
+<p> Don't have an account?<a href="mini_project\register.php"> Sign up</a>
 </p>
 
 </form>
